@@ -4,8 +4,7 @@ BASE DE DATOS EN MYSQL WORKBENCH:
 
  use database bullyingWeb
 
-
- create table usuarios(
+CREATE TABLE usuarios (
   id_usuario int NOT NULL AUTO_INCREMENT,
   nombre varchar(100) NOT NULL,
   apellido varchar(100) NOT NULL,
@@ -19,43 +18,38 @@ BASE DE DATOS EN MYSQL WORKBENCH:
   KEY idx_usuario_correo (correo)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
 CREATE TABLE clientes (
   id_cliente int NOT NULL AUTO_INCREMENT,
   id_usuario int NOT NULL,
+  direccion varchar(255) DEFAULT NULL,
   telefono varchar(20) DEFAULT NULL,
   PRIMARY KEY (id_cliente),
   KEY id_usuario (id_usuario),
   CONSTRAINT clientes_ibfk_1 FOREIGN KEY (id_usuario) REFERENCES usuarios (id_usuario) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
-CREATE TABLE afectado (
+CREATE TABLE afectados (
   id_afectado int NOT NULL AUTO_INCREMENT,
   id_cliente int NOT NULL,
   nombre varchar(100) NOT NULL,
   fecha_registro date DEFAULT NULL,
-  estado enum('pendiente','confirmada','cancelada','completada') NOT NULL DEFAULT 'pendiente',
   PRIMARY KEY (id_afectado),
   KEY id_cliente (id_cliente),
-  CONSTRAINT afectado_ibfk_1 FOREIGN KEY (id_cliente) REFERENCES clientes (id_cliente) ON DELETE CASCADE
+  CONSTRAINT mascotas_ibfk_1 FOREIGN KEY (id_cliente) REFERENCES clientes (id_cliente) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
-
-
-CREATE TABLE reporte (
+CREATE TABLE reportes (
   id_reporte int NOT NULL AUTO_INCREMENT,
   id_cliente int NOT NULL,
   fecha_hora datetime NOT NULL,
-  descripcionAfectado text,
+  descripcion text,
   estado enum('pendiente','confirmada','cancelada','completada') NOT NULL DEFAULT 'pendiente',
-  tipobullying varchar(50) DEFAULT NULL,
+  servicio varchar(50) DEFAULT NULL,
   id_afectado int DEFAULT NULL,
-  PRIMARY KEY (id_cita),
+  PRIMARY KEY (id_reporte),
   KEY id_cliente (id_cliente),
-  KEY idx_cita_estado (estado),
-  CONSTRAINT citas_ibfk_1 FOREIGN KEY (id_cliente) REFERENCES clientes (id_cliente) ON DELETE CASCADE
+  KEY idx_reporte_estado (estado),
+  CONSTRAINT reportes_ibfk_1 FOREIGN KEY (id_cliente) REFERENCES clientes (id_cliente) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -69,5 +63,4 @@ CREATE TABLE reporteAnonimo (
   imagen_ruta varchar(255), 
   PRIMARY KEY (id) 
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 
