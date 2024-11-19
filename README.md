@@ -1,9 +1,5 @@
-# BullyingWeb
- 
-BASE DE DATOS EN MYSQL WORKBENCH:
-
- use database bullyingWeb
-
+Create database BullyingWeb3;
+USE bullyingWeb;
 CREATE TABLE usuarios (
   id_usuario int NOT NULL AUTO_INCREMENT,
   nombre varchar(100) NOT NULL,
@@ -63,4 +59,3 @@ CREATE TABLE reporteAnonimo (
   imagen_ruta varchar(255), 
   PRIMARY KEY (id) 
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
