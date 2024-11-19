@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ReporteDAO {
     public boolean generarReporte(Reporte reporte) {
-        String sql = "INSERT INTO reporte (id_cliente, id_afectado, fecha_hora, descripcion, estado, servicio) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO reportes (id_cliente, id_afectado, fecha_hora, descripcion, estado, servicio) VALUES (?, ?, ?, ?, ?, ?)";
         
         try (Connection conn = ConexionDB.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -44,7 +44,7 @@ public class ReporteDAO {
 
         while (rs.next()) {
             Reporte reporte = new Reporte();
-            reporte.setIdreporte(rs.getInt("id_reporte"));
+            reporte.setIdReporte(rs.getInt("id_reporte"));
             
             // Obtén el LocalDateTime de la base de datos
             LocalDateTime fechaHora = rs.getObject("fecha_hora", LocalDateTime.class);

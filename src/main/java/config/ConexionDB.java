@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class ConexionDB {
 
     // Actualiza la URL para soportar UTF-8
-    private static final String URL = "jdbc:mysql://localhost:3306/bullyingWeb?useSSL=false&useUnicode=true&characterEncoding=UTF-8"; 
+    private static final String URL = "jdbc:mysql://localhost:3306/bullyingWeb3?useSSL=false&useUnicode=true&characterEncoding=UTF-8"; 
     private static final String USER = "root";
     private static final String PASSWORD = "";
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver"; 

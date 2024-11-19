@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 
 public class Reporte {
-    private int idreporte;
+    private int idReporte;
     private int idCliente;
     private int idAfectado;
     private LocalDateTime fechaHora;
@@ -16,30 +16,22 @@ public class Reporte {
     public Reporte() {
     }
 
-    public Reporte(int idreporte, int idCliente, int idAfectado, LocalDateTime fechaHora, String descripcion, String estado, String servicio) {
-        this.idreporte = idreporte;
-        this.idCliente = idCliente;
-        this.idAfectado = idAfectado;
-        this.fechaHora = fechaHora;
-        this.descripcion = descripcion;
-        this.estado = estado;
-        this.servicio = servicio;
+public Reporte(int idCliente, int idAfectado, LocalDateTime fechaHora, String descripcion, String estado, String servicio) {
+    this.idCliente = idCliente;
+    this.idAfectado = idAfectado;
+    this.fechaHora = fechaHora;
+    this.descripcion = descripcion;
+    this.estado = estado;
+    this.servicio = servicio;
+}
+
+
+    public int getIdReporte() {
+        return idReporte;
     }
 
-    public Reporte(int idCliente, int idAfectado, LocalDateTime fechaHora, String descripcion, String estado) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public Reporte(int idCliente, int idAfectado, LocalDateTime fechaHora, String descripcion, String estado, String servicio) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public int getIdreporte() {
-        return idreporte;
-    }
-
-    public void setIdreporte(int idreporte) {
-        this.idreporte = idreporte;
+    public void setIdReporte(int idReporte) {
+        this.idReporte = idReporte;
     }
 
     public int getIdCliente() {
@@ -90,7 +82,8 @@ public class Reporte {
         this.servicio = servicio;
     }
 
-    
-    
+   
+   
     
 }
+
