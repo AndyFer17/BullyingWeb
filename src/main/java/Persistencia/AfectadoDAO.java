@@ -1,9 +1,16 @@
+
 package Persistencia;
+
 import Logica.Afectado;
 import config.ConexionDB;
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
+import java.util.ArrayList;
 
 public class AfectadoDAO {
     
@@ -21,6 +28,7 @@ public class AfectadoDAO {
             ps.setDate(3, Date.valueOf(afectado.getFechaRegistro()));
             
             int filasAfectadas = ps.executeUpdate();
+            
             if (filasAfectadas > 0) {
                 try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
@@ -34,6 +42,9 @@ public class AfectadoDAO {
         }
         return idAfectadoGenerado;
     }
+    
+    
+   
     
     public List<Afectado> obtenerAfectadoPorCliente(int idCliente) {
         List<Afectado> afectados = new ArrayList<>();

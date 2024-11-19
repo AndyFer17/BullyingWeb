@@ -12,6 +12,7 @@ Servlets\AnonimoServlet.class
 Persistencia\UsuarioDAO.class
 Logica\Anonimo.class
 Servlets\LogoutServlet.class
+Servlets\ReporteUsuarioServlet.class
 Logica\Reporte.class
 Servlets\AgendarReporteServlet.class
 config\ConexionDB.class

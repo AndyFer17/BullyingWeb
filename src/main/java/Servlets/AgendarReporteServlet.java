@@ -42,7 +42,6 @@ public class AgendarReporteServlet extends HttpServlet {
 
         // Capturar los parámetros del formulario
         String nombreAfectado = request.getParameter("nombreAfectado");
-        String agresion = request.getParameter("agresion");
         String servicio = request.getParameter("servicio");  // Captura el parámetro servicio
         String fechaHoraStr = request.getParameter("fechaHora");
         String descripcion = request.getParameter("descripcion");
@@ -51,7 +50,7 @@ public class AgendarReporteServlet extends HttpServlet {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
         LocalDateTime fechaHora = LocalDateTime.parse(fechaHoraStr, formatter);
 
-        Afectado afectado = new Afectado(idCliente, nombreAfectado, agresion, LocalDate.now());
+        Afectado afectado = new Afectado(idCliente, nombreAfectado, servicio, LocalDate.now());
 
         AfectadoDAO afectadoDAO = new AfectadoDAO();
         int idAfectado = afectadoDAO.agregarAfectado(afectado);
