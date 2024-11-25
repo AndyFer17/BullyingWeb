@@ -4,52 +4,58 @@
 
 <jsp:include page="/componentes/head.jsp" />
 
+<head>
+    <!-- Incluir auth.css para los estilos específicos -->
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
 <body>
-    <div class="contenedorPrincipal"> 
+    <div class="contenedorPrincipal">
         <jsp:include page="/componentes/header.jsp" />
-    
 
-
-
-    <!-- Sección de Registro -->
-    <section class="register-container">
-        
-        <div class="register-content">
-            <div class="register-image">
-                <img src="${pageContext.request.contextPath}/img/loginVet.jpg" alt="Imagen Registro">
-            </div>
-            <div class="register-form">
-                <h2>Crear una Cuenta</h2>
+        <!-- Contenedor principal del registro con diseño moderno -->
+        <div class="container" id="container">
+            <!-- Formulario de Registro -->
+            <div class="form-container sign-up">
                 <form action="RegistroServlet" method="post">
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-                    </div>
+                    <h1>Crear una Cuenta</h1>
+                    <span>Regístrate para acceder a todas las funciones</span>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
 
-                    <div class="form-group">
-                        <label for="apellido">Apellido</label>
-                        <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
-                    </div>
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
 
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico</label>
-                        <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" required>
-                    </div>
+                    <label for="correo">Correo Electrónico</label>
+                    <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" required>
 
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
-                    </div>
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
 
                     <button type="submit" class="register-button">Registrar Cuenta</button>
                 </form>
+            </div>
 
-                <p class="login-link">¿Ya tienes una cuenta? <a href="login.jsp">Inicia Sesión aquí</a></p>
+            <!-- Mensaje para redirigir al login -->
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-left">
+                        <h1>¡Bienvenido de nuevo!</h1>
+                        <p>Si ya tienes una cuenta, inicia sesión aquí.</p>
+                        <button class="hidden" id="login" onclick="location.href='login.jsp'">Iniciar Sesión</button>
+                    </div>
+                    <div class="toggle-panel toggle-right">
+                        <h1>¿Eres nuevo aquí?</h1>
+                        <p>Regístrate con tus datos personales y accede a todas las funciones.</p>
+                        <button class="hidden" id="register">Regístrate</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <jsp:include page="/componentes/footer.jsp" />
+        <jsp:include page="/componentes/footer.jsp" />
+    </div>
 </body>
 
 </html>
+
